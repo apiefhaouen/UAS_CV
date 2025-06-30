@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Prediksi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .result-container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h3>Hasil Prediksi:</h3>
+        <img src="{{ url_for('static', filename='uploads/' + file) }}" alt="Uploaded image">
+        <h2>Prediksi: {{ prediction }}</h2>
+        <h2>Confidence: {{ confidence * 100 | round(2) }}%</h2>
+        <br>
+        <a href="{{ url_for('upload_file') }}">Coba gambar lain</a>
+    </div>
+</body>
+</html>
